@@ -21,7 +21,30 @@
 
 ################################################################################
 # Imports
-
+import math  #I tried to make the code comprehensive. So for any other input apart from 'done', it will prompt the user to enter another expression. But the problem comes in the if x=='done' loop, which only works if I don't add '+ a' to it. If I add + a, the code never enters that loop somehow !
+def eval_loop(x):
+    try:
+        a = eval(x)
+        print a
+        new_x=raw_input('Enter any mathematical expression: ')
+        eval_loop(new_x)
+    except:
+        if x=='done':
+            print ('Evaluated value of last expression is: ' + str(a))
+        else:
+            print 'Invalid Input. Try Again!'
+            new_x=raw_input('Enter any mathematical expression: ')
+            eval_loop(new_x)
+            
+ #       print('Evaluated value of last expression: ' + "'" + str(a) + "'." + ' Goodbye!')
+ #       else:
+#            print('Invalid Input')
+  #          new_x=raw_input('Enter any mathematical expression: ')
+#            eval_loop(new_x)
+            
+        
+        
+        
 
 # Body
 
@@ -30,8 +53,8 @@
 
 ################################################################################
 def main():
-    pass # Remove this line and uncomment below once eval_loop is defined.
-    # eval_loop()
+    x=raw_input("Enter any mathematical expression: ")
+    eval_loop(x)
     
 
 if __name__ == '__main__':

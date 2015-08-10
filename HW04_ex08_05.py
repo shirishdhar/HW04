@@ -17,6 +17,13 @@
 ################################################################################
 # Imports
 
+def count(word, letter):
+    counter = 0
+    for i in word:
+        if i == letter:
+            counter = counter + 1
+    print counter
+
 
 # Body
 
@@ -28,7 +35,9 @@ def main():
 
     # Remove print("Hello World!") and add several functions calls to count()
     # below, passing various strings and letters
-    print("Hello World!") 
+    count('mississipi', 's')
+    count('hallelujah', 'l')
+    
     
 
 if __name__ == '__main__':

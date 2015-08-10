@@ -16,8 +16,14 @@
 # If the string length is less than 3, leave it unchanged.
 # Return the resulting string.
 def verbing(s):
-  # +++your code here+++
-  return
+  if len(s)>=3:
+    if s[-3:]!='ing':
+        return s+'ing'
+    else:
+        return s+'ly'
+  else:
+    return s
+        
 
 
 # E. not_bad
@@ -29,8 +35,12 @@ def verbing(s):
 # So 'This dinner is not that bad!' yields:
 # This dinner is good!
 def not_bad(s):
-  # +++your code here+++
-  return
+  index1=s.find('not')
+  index2=s.find('bad')
+  if index1<index2:
+    return s[:index1] + 'good' + s[index2 + 3:]
+  else:
+    return s
 
 
 # F. front_back
@@ -41,8 +51,23 @@ def not_bad(s):
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
 def front_back(a, b):
-  # +++your code here+++
-  return
+  la=len(a)
+  lb=len(b)
+  if la%2==0:
+    a_front=a[:(la/2)]
+    a_back=a[(la/2):]
+  else:
+    a_front=a[:(la/2)+1]
+    a_back=a[(la/2)+1:]
+  if lb%2==0:
+    b_front=b[:(lb/2)]
+    b_back=b[(lb/2):]
+  else:
+    b_front=b[:(lb/2)+1]
+    b_back=b[(lb/2)+1:]
+
+  return a_front + b_front + a_back + b_back 
+  
 
 
 # Simple provided test() function used in main() to print
@@ -63,14 +88,12 @@ def main():
   test(verbing('swiming'), 'swimingly')
   test(verbing('do'), 'do')
 
-  print
   print 'not_bad'
   test(not_bad('This movie is not so bad'), 'This movie is good')
   test(not_bad('This dinner is not that bad!'), 'This dinner is good!')
   test(not_bad('This tea is not hot'), 'This tea is not hot')
   test(not_bad("It's bad yet not"), "It's bad yet not")
 
-  print
   print 'front_back'
   test(front_back('abcd', 'xy'), 'abxcdy')
   test(front_back('abcde', 'xyz'), 'abcxydez')
